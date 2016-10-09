@@ -27,17 +27,17 @@ function run(ComponentName) {
   );
   createDirectory(componentDirectory);
 
-  const className = changeCase.paramCase(ComponentName);
+  const className = changeCase.camelCase(ComponentName);
 
   // Create and write JS to file
   const componentPath = path.join(componentDirectory, 'index.js');
   const componentTemplate = buildJSTemplate(ComponentName, className);
   fs.writeFileSync(componentPath, componentTemplate);
 
-  // Create and write SCSS to file
-  const lessPath = path.join(componentDirectory, 'index.css');
-  const lessTemplate = buildSCSSTemplate(ComponentName, className);
-  fs.writeFileSync(lessPath, lessTemplate);
+  // Create and write inline styles to file
+  const stylesPath = path.join(componentDirectory, 'styles.js');
+  const stylesTemplate = buildStylesTemplate(ComponentName, className);
+  fs.writeFileSync(stylesPath, stylesTemplate);
 
   // Create and write a test to file
   const testPath = path.join(
@@ -69,16 +69,14 @@ function buildJSTemplate(ComponentName, className) {
   return `\
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import { css } from 'aphrodite';
 
-import './index.css';
+import styles from './styles';
 
 
 const ${ComponentName} = () => {
-  const classes = classNames('${className}');
-
   return (
-    <div className={classes}>
+    <div className={css(styles.${className})}>
       Your Component Here :)
     </div>
   );
@@ -95,11 +93,15 @@ ${ComponentName}.defaultProps = {
 export default ${ComponentName};\n`;
 }
 
-function buildSCSSTemplate(ComponentName, className) {
+function buildStylesTemplate(ComponentName, className) {
   return `\
-.${className} {
+import { StyleSheet } from 'aphrodite';
 
-}\n`;
+export default StyleSheet.create({
+  ${className}: {
+
+  }
+});\n`;
 }
 
 function buildTestTemplate(ComponentName) {

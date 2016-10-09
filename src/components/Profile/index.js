@@ -1,15 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import { css } from 'aphrodite';
 
-import './index.css';
+import styles from './styles';
 
 
 const Profile = () => {
-  const classes = classNames('profile');
-
   return (
-    <div className={classes}>
+    <div className={css(styles.profile)}>
       Your Component Here :)
     </div>
   );
