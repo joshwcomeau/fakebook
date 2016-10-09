@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-register": "^6.16.3",
+    "change-case": "^3.0.0",
     "react-scripts": "0.6.1"
   },
   "dependencies": {
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^4.0.0-alpha.4",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.12.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "add-component": "NODE_ENV=development node tools/add-component/transpile.js"
   }
 }
