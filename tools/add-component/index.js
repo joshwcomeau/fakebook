@@ -35,7 +35,7 @@ function run(ComponentName) {
   fs.writeFileSync(componentPath, componentTemplate);
 
   // Create and write SCSS to file
-  const lessPath = path.join(componentDirectory, 'index.scss');
+  const lessPath = path.join(componentDirectory, 'index.css');
   const lessTemplate = buildSCSSTemplate(ComponentName, className);
   fs.writeFileSync(lessPath, lessTemplate);
 
