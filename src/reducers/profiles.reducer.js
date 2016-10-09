@@ -1,0 +1,15 @@
+
+
+const initialState = {};
+
+// ////////////////////
+// Reducers //////////
+// //////////////////
+export default function profiles(state = initialState, action) {
+  return state;
+}
+
+
+// ////////////////////
+// Selectors /////////
+// //////////////////
