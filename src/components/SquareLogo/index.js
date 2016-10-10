@@ -3,13 +3,14 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { css } from 'aphrodite';
 
+import SpriteIcon from '../SpriteIcon';
 import styles from './styles';
 
 
 const SquareLogo = ({ mergeStyles }) => {
   return (
     <Link to="/" className={css(styles.squareLogoContainer, mergeStyles)}>
-      <span className={css(styles.squareLogo)} />
+      <SpriteIcon name="squareLogo" />
     </Link>
   );
 };
