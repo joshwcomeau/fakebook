@@ -33,8 +33,8 @@ const Header = () => {
 
             <div className={css(styles.headerNavigationChunk)}>
               <HeaderActionIcon iconName="friends" />
-              <HeaderActionIcon iconName="messages" />
-              <HeaderActionIcon iconName="notifications" />
+              <HeaderActionIcon iconName="messages" badgeNum={12} />
+              <HeaderActionIcon iconName="notifications" badgeNum={3} />
             </div>
           </div>
         </MaxWidthWrapper>

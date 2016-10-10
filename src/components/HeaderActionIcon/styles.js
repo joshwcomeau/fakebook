@@ -1,4 +1,5 @@
 import { StyleSheet } from 'aphrodite';
+import { alertColor } from '../../global-styles';
 
 export default StyleSheet.create({
   iconContainer: {
@@ -18,5 +19,19 @@ export default StyleSheet.create({
   },
   icon: {
     opacity: '0.6',
+  },
+  badge: {
+    position: 'absolute',
+    zIndex: 2,
+    top: 0,
+    right: 0,
+    padding: '1px 3px',
+    fontSize: '9px',
+    background: alertColor,
+    color: '#FFF',
+    borderRadius: '2px',
+    WebkitFontSmoothing: 'subpixel-antialiased',
+    lineHeight: 1.3,
+    minHeight: '13px'
   },
 });

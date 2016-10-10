@@ -8,6 +8,7 @@
 export const offwhite = '#e9ebee';
 export const primaryColor = '#3b5998';
 export const darkerPrimaryColor = '#29487d';
+export const alertColor = '#fa3e3e';
 
 export const maxWidth = 960;
 export const maxWidthPx = `${maxWidth}px`;

@@ -6,9 +6,16 @@ import SpriteIcon from '../SpriteIcon';
 import styles from './styles';
 
 
-const HeaderActionIcon = ({ iconName, onClick }) => {
+const HeaderActionIcon = ({ iconName, badgeNum, onClick }) => {
+  const badge = badgeNum && (
+    <div className={css(styles.badge)}>
+      {badgeNum}
+    </div>
+  );
+
   return (
     <button className={css(styles.iconContainer)} onClick={onClick}>
+      {badge}
       <SpriteIcon name={iconName} mergeStyles={styles.icon} />
     </button>
   );
@@ -16,6 +23,7 @@ const HeaderActionIcon = ({ iconName, onClick }) => {
 
 HeaderActionIcon.propTypes = {
   iconName: PropTypes.string.isRequired,
+  badgeNum: PropTypes.number,
   onClick: PropTypes.func,
 };
 
