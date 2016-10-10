@@ -3,11 +3,9 @@ import React, { Component, PropTypes } from 'react';
 import { css } from 'aphrodite';
 
 import styles from './styles';
-console.log(styles)
 
 
 const MaxWidthWrapper = ({ children, mergeStyles }) => {
-  console.log(styles, styles.maxWidthWrapper)
   return (
     <div className={css(styles.maxWidthWrapper, mergeStyles)}>
       {children}
