@@ -23,4 +23,20 @@ export default StyleSheet.create({
   headerContents: {
     background: 'red',
   },
+  logo: {
+    margin: '7px 5px 7px -2px',
+    float: 'left',
+  },
+  searchInput: {
+    position: 'relative',
+    top: '9px',
+    width: '390px',
+    height: '24px',
+    padding: '0 5px',
+    fontSize: '14px',
+    float: 'left',
+    border: 'none',
+    borderRadius: '3px',
+    outline: 'none',
+  },
 });

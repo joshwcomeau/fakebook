@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { css } from 'aphrodite';
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
+import SquareLogo from '../SquareLogo';
 import styles from './styles';
 
 
@@ -11,7 +12,8 @@ const Header = () => {
     <div className={css(styles.headerContainer)}>
       <div className={css(styles.header)}>
         <MaxWidthWrapper>
-          Hello!
+          <SquareLogo mergeStyles={styles.logo} />
+          <input className={css(styles.searchInput)} />
         </MaxWidthWrapper>
       </div>
     </div>

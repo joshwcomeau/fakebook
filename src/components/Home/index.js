@@ -2,13 +2,16 @@
 import React, { Component, PropTypes } from 'react';
 import { css } from 'aphrodite';
 
+import MaxWidthWrapper from '../MaxWidthWrapper';
 import styles from './styles';
 
 
 const Home = () => {
   return (
     <div className={css(styles.home)}>
-      Your Component Here :)
+      <MaxWidthWrapper>
+        Hello!
+      </MaxWidthWrapper>
     </div>
   );
 };
