@@ -16,14 +16,18 @@ export default StyleSheet.create({
     outline: 'none',
     cursor: 'pointer',
     background: 'transparent',
+  },
 
-    ':hover span': {
-      opacity: '0.8',
+  iconInactive: {
+    opacity: 0.6,
+    ':hover': {
+      opacity: 0.8,
     },
   },
-  icon: {
-    opacity: '0.6',
+  iconActive: {
+    opacity: 1,
   },
+
   badge: {
     position: 'absolute',
     zIndex: 2,

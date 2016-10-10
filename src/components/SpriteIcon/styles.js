@@ -15,13 +15,22 @@ export default StyleSheet.create({
   squareLogo: {
     backgroundPosition: '0 -163px',
   },
-  friends: {
+  friendsLight: {
+    backgroundPosition: '0 -213px',
+  },
+  friendsDark: {
     backgroundPosition: '0 -188px',
   },
-  messages: {
+  messagesLight: {
+    backgroundPosition: '0 -363px',
+  },
+  messagesDark: {
     backgroundPosition: '0 -338px',
   },
-  notifications: {
+  notificationsLight: {
+    backgroundPosition: '0 -263px',
+  },
+  notificationsDark: {
     backgroundPosition: '0 -238px',
   },
 });

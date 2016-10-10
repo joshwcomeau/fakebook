@@ -26,7 +26,23 @@ import styles from './styles';
 // on the various supported types.
 class HeaderActionFlyout extends Component {
   renderNub() {
+    let offset;
 
+    switch (this.props.activeFlyout) {
+      case 'notifications':
+        offset = 14;
+        break;
+      case 'messages':
+        offset = 48;
+        break;
+      case 'friends':
+        offset = 84;
+        break;
+    }
+
+    return (
+      <div className={css(styles.nub)} style={{ right: offset }} />
+    )
   }
 
   renderHeader() {

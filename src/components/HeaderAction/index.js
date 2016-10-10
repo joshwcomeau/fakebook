@@ -10,12 +10,20 @@ import SpriteIcon from '../SpriteIcon';
 import styles from './styles';
 
 
-const HeaderAction = ({ actionName, badgeNum, toggleHeaderActionFlyout }) => {
+const HeaderAction = ({
+  actionName,
+  isActive,
+  badgeNum,
+  toggleHeaderActionFlyout,
+}) => {
   const badge = !!badgeNum && (
     <div className={css(styles.badge)}>
       {badgeNum}
     </div>
   );
+
+  // The icon may be light or dark, depending on whether it's active.
+  const iconName = isActive ? `${actionName}Light` : `${actionName}Dark`
 
   return (
     <div className={css(styles.headerAction)}>
@@ -24,7 +32,10 @@ const HeaderAction = ({ actionName, badgeNum, toggleHeaderActionFlyout }) => {
         onClick={() => toggleHeaderActionFlyout(actionName)}
       >
         {badge}
-        <SpriteIcon name={actionName} mergeStyles={styles.icon} />
+        <SpriteIcon
+          name={iconName}
+          mergeStyles={isActive ? styles.iconActive : styles.iconInactive}
+        />
       </button>
     </div>
   );
@@ -32,11 +43,13 @@ const HeaderAction = ({ actionName, badgeNum, toggleHeaderActionFlyout }) => {
 
 HeaderAction.propTypes = {
   actionName: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
   badgeNum: PropTypes.number,
   toggleHeaderActionFlyout: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => ({
+  isActive: ownProps.actionName === state.ui.headerActions.activeFlyout,
   // TODO: Badge number
   badgeNum: Math.floor(Math.random() * 10),
 });
