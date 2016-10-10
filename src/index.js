@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Match, Miss } from 'react-router';
 
 import configureStore from './store';
 
+import Header from './components/Header';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import DevTools from './components/DevTools';
@@ -16,8 +17,11 @@ render(
   <Provider store={store}>
     <Router>
       <div>
+        <Header />
+
         <Match exactly pattern="/" component={Home} />
         <Miss component={Profile} />
+
         <DevTools />
       </div>
     </Router>
