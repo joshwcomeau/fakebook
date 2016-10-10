@@ -12,9 +12,10 @@ The main purpose of this project is to show one method of managing redux state a
 This repo strives to be modern. It uses:
 
 - React Router v4
+- Redux Saga
+- Reselect
 - Inline styles (through Aphrodite)
 - Create React App, unejected (for as long as possible)
-- Redux Saga
 - AirBnb ESLint config
 
 ----------
