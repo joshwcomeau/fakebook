@@ -2,11 +2,15 @@ import { StyleSheet } from 'aphrodite';
 import { alertColor } from '../../global-styles';
 
 export default StyleSheet.create({
+  headerAction: {
+    display: 'block',
+    float: 'left',
+    margin: '5px 2px 6px',
+  },
+
   iconContainer: {
     position: 'relative',
     display: 'block',
-    float: 'left',
-    margin: '5px 0 6px',
     padding: '4px 3px 0',
     border: 'none',
     outline: 'none',

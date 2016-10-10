@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import HeaderActionIcon from './index';
+import HeaderAction from './index';
 
-describe('HeaderActionIcon', () => {
+describe('HeaderAction', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<HeaderActionIcon />).toJSON();
+    const tree = renderer.create(<HeaderAction />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

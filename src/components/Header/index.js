@@ -1,16 +1,22 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 
-import HeaderActionIcon from '../HeaderActionIcon';
+import HeaderAction from '../HeaderAction';
+import HeaderActionFlyout from '../HeaderActionFlyout';
 import HeaderDivider from '../HeaderDivider';
 import HeaderLink from '../HeaderLink';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import SquareLogo from '../SquareLogo';
+
 import styles from './styles';
 
 
-const Header = () => {
+const Header = ({
+  activeFlyout,
+  toggleHeaderActionFlyout,
+}) => {
   return (
     <div className={css(styles.headerContainer)}>
       <div className={css(styles.header)}>
@@ -32,11 +38,13 @@ const Header = () => {
             </div>
 
             <div className={css(styles.headerNavigationChunk)}>
-              <HeaderActionIcon iconName="friends" />
-              <HeaderActionIcon iconName="messages" badgeNum={12} />
-              <HeaderActionIcon iconName="notifications" badgeNum={3} />
+              <HeaderAction actionName="friends" />
+              <HeaderAction actionName="messages" />
+              <HeaderAction actionName="notifications" />
             </div>
           </div>
+
+          {activeFlyout && <HeaderActionFlyout />}
         </MaxWidthWrapper>
       </div>
     </div>
@@ -47,8 +55,8 @@ Header.propTypes = {
 
 };
 
-Header.defaultProps = {
+const mapStateToProps = state => ({
+  activeFlyout: state.ui.headerActions.activeFlyout,
+})
 
-};
-
-export default Header;
+export default connect(mapStateToProps)(Header);
