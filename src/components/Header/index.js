@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 
 import HeaderAction from '../HeaderAction';
-import HeaderActionFlyout from '../HeaderActionFlyout';
+import Flyout from '../Flyout';
 import HeaderDivider from '../HeaderDivider';
 import HeaderLink from '../HeaderLink';
 import MaxWidthWrapper from '../MaxWidthWrapper';
@@ -15,7 +15,7 @@ import styles from './styles';
 
 const Header = ({
   activeFlyout,
-  toggleHeaderActionFlyout,
+  toggleFlyout,
 }) => {
   return (
     <div className={css(styles.headerContainer)}>
@@ -44,7 +44,7 @@ const Header = ({
             </div>
           </div>
 
-          {activeFlyout && <HeaderActionFlyout />}
+          {activeFlyout && <Flyout />}
         </MaxWidthWrapper>
       </div>
     </div>

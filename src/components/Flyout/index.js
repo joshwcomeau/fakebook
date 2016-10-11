@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 
 import {
-  toggleHeaderActionFlyout
+  toggleFlyout,
+  markAllMessagesAsRead,
+  markAllNotificationsAsRead,
 } from '../../actions';
+
+import FlyoutHeader from '../FlyoutHeader';
 import styles from './styles';
 
 
@@ -24,7 +28,7 @@ import styles from './styles';
 // The best way to deal with situations like this, I've found, is to
 // isolate the creation of each section into a method, that switches
 // on the various supported types.
-class HeaderActionFlyout extends Component {
+class Flyout extends Component {
   renderNub() {
     let offset;
 
@@ -46,7 +50,39 @@ class HeaderActionFlyout extends Component {
   }
 
   renderHeader() {
-    return <h1>Hi</h1>;
+    const {
+      markAllMessagesAsRead,
+      markAllNotificationsAsRead,
+      activeFlyout,
+    } = this.props;
+
+    switch (this.props.activeFlyout) {
+      case 'notifications':
+        return (
+          <FlyoutHeader
+            action={markAllNotificationsAsRead}
+            actionText="Mark All as Read"
+          >
+            Notifications
+          </FlyoutHeader>
+        );
+      case 'messages':
+        // TODO: Fetch actual number of unread messages
+        return (
+          <FlyoutHeader
+            action={markAllMessagesAsRead}
+            actionText="Mark All as Read"
+          >
+            Recent (12)
+          </FlyoutHeader>
+        );
+      case 'friends':
+        return (
+          <FlyoutHeader>
+            Friend Requests
+          </FlyoutHeader>
+        );
+    }
   }
 
   renderList() {
@@ -59,7 +95,7 @@ class HeaderActionFlyout extends Component {
 
   render() {
     return (
-      <div className={css(styles.headerActionFlyout)}>
+      <div className={css(styles.flyout)}>
         {this.renderNub()}
         {this.renderHeader()}
         {this.renderList()}
@@ -69,16 +105,16 @@ class HeaderActionFlyout extends Component {
   }
 }
 
-HeaderActionFlyout.propTypes = {
+Flyout.propTypes = {
   activeFlyout: PropTypes.oneOf([
     'friends',
     'messages',
     'notifications'
   ]).isRequired,
-  toggleHeaderActionFlyout: PropTypes.func.isRequired,
+  toggleFlyout: PropTypes.func.isRequired,
 };
 
-HeaderActionFlyout.defaultProps = {
+Flyout.defaultProps = {
 
 };
 
@@ -88,5 +124,9 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { toggleHeaderActionFlyout }
-)(HeaderActionFlyout);
+  {
+    toggleFlyout,
+    markAllMessagesAsRead,
+    markAllNotificationsAsRead,
+  }
+)(Flyout);

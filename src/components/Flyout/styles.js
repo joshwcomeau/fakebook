@@ -1,7 +1,8 @@
 import { StyleSheet } from 'aphrodite';
+import { black } from '../../global-styles';
 
 export default StyleSheet.create({
-  headerActionFlyout: {
+  flyout: {
     display: 'block',
     position: 'absolute',
     top: '46px',
@@ -11,6 +12,7 @@ export default StyleSheet.create({
     zIndex: -1,
     background: '#FFFFFF',
     boxShadow: '0px 1px 3px rgba(0,0,0,0.25)',
+    color: black
   },
 
   nub: {

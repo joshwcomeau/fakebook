@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import renderer from 'react-test-renderer';
-import HeaderActionFlyout from './index';
+import FlyoutHeader from './index';
 
-describe('HeaderActionFlyout', () => {
+describe('FlyoutHeader', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<HeaderActionFlyout />).toJSON();
+    const tree = renderer.create(<FlyoutHeader />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

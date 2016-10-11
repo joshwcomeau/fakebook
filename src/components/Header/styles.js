@@ -18,7 +18,6 @@ export default StyleSheet.create({
     width: '100%',
     top: '0',
     height: headerHeightPx,
-    lineHeight: headerHeightPx,
     backgroundColor: primaryColor,
     borderBottom: `1px solid ${darkerPrimaryColor}`,
     color: '#FFFFFF',
@@ -32,6 +31,7 @@ export default StyleSheet.create({
   },
   headerNavigation: {
     flex: '0 0 auto',
+    lineHeight: headerHeightPx,
   },
   headerNavigationChunk: {
     display: 'inline-block',

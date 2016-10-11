@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 
 import {
-  toggleHeaderActionFlyout
+  toggleFlyout
 } from '../../actions';
 import SpriteIcon from '../SpriteIcon';
 import styles from './styles';
@@ -14,7 +14,7 @@ const HeaderAction = ({
   actionName,
   isActive,
   badgeNum,
-  toggleHeaderActionFlyout,
+  toggleFlyout,
 }) => {
   const badge = !!badgeNum && (
     <div className={css(styles.badge)}>
@@ -29,7 +29,7 @@ const HeaderAction = ({
     <div className={css(styles.headerAction)}>
       <button
         className={css(styles.iconContainer)}
-        onClick={() => toggleHeaderActionFlyout(actionName)}
+        onClick={() => toggleFlyout(actionName)}
       >
         {badge}
         <SpriteIcon
@@ -45,7 +45,7 @@ HeaderAction.propTypes = {
   actionName: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
   badgeNum: PropTypes.number,
-  toggleHeaderActionFlyout: PropTypes.func,
+  toggleFlyout: PropTypes.func,
 };
 
 const mapStateToProps = (state, ownProps) => ({
@@ -57,6 +57,6 @@ const mapStateToProps = (state, ownProps) => ({
 export default connect(
   mapStateToProps,
   {
-    toggleHeaderActionFlyout
+    toggleFlyout
   }
 )(HeaderAction);
