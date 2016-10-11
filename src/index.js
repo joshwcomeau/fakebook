@@ -21,7 +21,7 @@ render(
         <Header />
 
         <Match exactly pattern="/" component={Home} />
-        <Miss component={Profile} />
+        <Match pattern="/:userName" component={Profile} />
 
         <WindowEvents />
 
