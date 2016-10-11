@@ -11,7 +11,7 @@ import styles from './styles';
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.viewProfilePage({ userName: this.props.params.userName })
+    this.props.viewProfilePage({ userName: this.props.params.userName });
   }
 
   render() {

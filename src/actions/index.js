@@ -14,7 +14,7 @@ export const fetchUserPostsRequest = () => ({
   type: FETCH_USER_POSTS_REQUEST,
 });
 
-export const fetchUserPostsSuccess = payload => ({
+export const fetchUserPostsSuccess = ({ payload }) => ({
   type: FETCH_USER_POSTS_SUCCESS,
   payload,
 });
@@ -28,7 +28,7 @@ export const fetchUserProfileRequest = () => ({
   type: FETCH_USER_PROFILE_REQUEST,
 });
 
-export const fetchUserProfileSuccess = payload => ({
+export const fetchUserProfileSuccess = ({ payload }) => ({
   type: FETCH_USER_PROFILE_SUCCESS,
   payload,
 });
@@ -51,7 +51,7 @@ export const toggleFlyout = flyout => ({
   flyout,
 });
 
-export const viewProfilePage = userName => ({
+export const viewProfilePage = ({ userName }) => ({
   type: VIEW_PROFILE_PAGE,
   userName,
 })

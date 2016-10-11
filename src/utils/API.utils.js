@@ -14,7 +14,13 @@ import profiles from '../stubs/profiles';
 import friends from '../stubs/friends';
 
 export const fetchUserProfileData = ({ userName }) => {
-  return find(profiles, profile => profile.userName === userName);
+  const profile = find(profiles, profile => profile.userName === userName);
+
+  // We need to find and attach this user's friends.
+  return {
+    ...profile,
+    friendIds: friends[profile.id],
+  }
 }
 
 export const fetchUserPostsData = ({ userName }) => {

@@ -15,6 +15,7 @@
     "classnames": "^2.2.5",
     "faker": "^3.1.0",
     "lodash.find": "^4.6.0",
+    "lodash.findkey": "^4.6.0",
     "lodash.padstart": "^4.6.1",
     "lodash.range": "^3.2.0",
     "lodash.samplesize": "^4.2.0",

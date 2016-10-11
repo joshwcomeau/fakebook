@@ -2,54 +2,73 @@
 import { takeEvery, takeLatest } from 'redux-saga';
 import { take, call, put, fork, select } from 'redux-saga/effects';
 
-import {
-  fetchUserProfileData,
-  fetchUserPostsData,
-} from '../utils/API.utils';
+import * as API from '../utils/API.utils';
 import {
   FETCH_USER_POSTS_REQUEST,
   FETCH_USER_PROFILE_REQUEST,
   VIEW_PROFILE_PAGE,
   fetchUserPostsRequest,
+  fetchUserPostsSuccess,
+  fetchUserPostsFailure,
   fetchUserProfileRequest,
+  fetchUserProfileSuccess,
   fetchUserProfileFailure,
 } from '../actions';
 
 
+function* fetchUserProfileData({ userName }) {
+  try {
+    const profile = yield call(API.fetchUserProfileData, { userName });
+    yield put(fetchUserProfileSuccess({ payload: { profile } }));
+    return profile;
+  } catch (error) {
+    yield put(fetchUserProfileFailure({ error }));
+  }
+}
+
+function* fetchUserPostsData({ userName }) {
+  try {
+    const posts = yield call(API.fetchUserPostsData, { userName });
+    yield put(fetchUserPostsSuccess({ payload: { posts } }));
+    return posts;
+  } catch (error) {
+    yield put(fetchUserPostsFailure({ error }));
+  }
+}
+
 function* fetchDataForProfilePage({ userName }) {
+  console.log("FETCHING", userName)
   // For a profile page, we need:
   //   - The user's profile data (username, avatar, whatever)
   //   - The user's most recent posts
   //   - Other user info:
   //       - Top 9 friends,
   //       - People who have reacted to the posts on the main feed.
-  console.log("Fetching data for", userName)
 
   // Start by dispatching our 'REQUEST' actions,
   // so we can display a loading indicator.
-  yield put(fetchUserProfileRequest());
-  yield put(fetchUserPostsRequest());
+  yield [
+    put(fetchUserProfileRequest()),
+    put(fetchUserPostsRequest())
+  ];
 
-  // We can start requesting the user's posts early, in a non-blocking way.
-  // This is a timesaver; we don't need the user's profile to be loaded before
-  // we can start fetching its posts!
-  const postsData = yield fork(fetchUserPostsData, userName);
+  // To actually fetch the data, we'll request our user's profile data and
+  // posts in parallel.
+  const [profile, posts] = yield [
+    call(fetchUserProfileData, { userName }),
+    call(fetchUserPostsData, { userName }),
+  ]
 
-  // Next, we want to start requesting user data.
-  // First, we need the user's profile data. If this fails, it means we've
-  // tried to access the profile of a user who doesn't exist.
-  try {
-    const profileData = yield call(fetchUserProfileData, userName);
-  } catch (error) {
-    yield put(fetchUserProfileFailure(error));
+  // If either the profile or the posts could not be located, we're done.
+  // Error-handling was already tackled by the sub-sagas.
+  if (!profile || !posts) {
     return;
   }
 
-
-  const [profile, posts] = [
-    yield call(fetchUserProfileData, userName),
-    yield call(fetchUserPostsData, userName),
-  ]
+  // Now that we have all the posts, we need to get the associated users!
+  // Both our profile's friends, as well as the people who have liked/commented
+  // on our posts.
+  // TODO
 }
 
 

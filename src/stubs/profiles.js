@@ -3,6 +3,7 @@ import range from 'lodash.range';
 import padStart from 'lodash.padstart';
 
 const josh = {
+  id: '0001',
   userName: 'joshwcomeau',
   firstName: 'Joshua',
   lastName: 'Comeau',
@@ -13,9 +14,6 @@ const josh = {
   homeCity: 'Montreal',
   profilePhoto: 'http://placekitten.com/168/168',
   coverPhoto: 'http://placekitten.com/900/205',
-  friendIds: [
-    '002', '003', '004',
-  ],
 };
 
 const randomlyGeneratedUsers = {};
@@ -27,6 +25,7 @@ range(5).forEach(i => {
   const id = padStart(userNum, 4, '0');
 
   randomlyGeneratedUsers[id] = {
+    id,
     userName: Faker.internet.userName(),
     firstName: Faker.name.firstName(),
     lastName: Faker.name.lastName(),
@@ -41,6 +40,6 @@ range(5).forEach(i => {
 })
 
 export default {
-  '0001': josh,
+  [josh.id]: josh,
   ...randomlyGeneratedUsers
 };
