@@ -24,7 +24,9 @@ class WindowEvents extends Component {
 
   windowClick(ev) {
     // If we click anywhere except the Flyout, we want to close the Flyout.
-    this.props.toggleFlyout(null);
+    if (this.props.isFlyoutActive) {
+      this.props.toggleFlyout(null);
+    }
   }
 
   render() {
@@ -36,4 +38,8 @@ WindowEvents.propTypes = {
   toggleFlyout: PropTypes.func.isRequired,
 };
 
-export default connect(null, { toggleFlyout })(WindowEvents);
+const mapStateToProps = state => ({
+  isFlyoutActive: state.ui.headerActions.activeFlyout !== null,
+});
+
+export default connect(mapStateToProps, { toggleFlyout })(WindowEvents);
