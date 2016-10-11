@@ -6,6 +6,8 @@ import { css } from 'aphrodite';
 import {
   toggleFlyout
 } from '../../actions';
+import { stopPropagation } from '../../utils/event.utils';
+
 import SpriteIcon from '../SpriteIcon';
 import styles from './styles';
 
@@ -29,7 +31,10 @@ const HeaderAction = ({
     <div className={css(styles.headerAction)}>
       <button
         className={css(styles.iconContainer)}
-        onClick={() => toggleFlyout(actionName)}
+        onClick={ev => {
+          stopPropagation(ev);
+          toggleFlyout(actionName)
+        }}
       >
         {badge}
         <SpriteIcon

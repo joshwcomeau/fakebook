@@ -8,6 +8,7 @@ import {
   markAllMessagesAsRead,
   markAllNotificationsAsRead,
 } from '../../actions';
+import { stopPropagation } from '../../utils/event.utils';
 
 import FlyoutHeader from '../FlyoutHeader';
 import styles from './styles';
@@ -104,7 +105,10 @@ class Flyout extends Component {
 
   render() {
     return (
-      <div className={css(styles.flyout)}>
+      <div
+        className={css(styles.flyout)}
+        onClick={stopPropagation}
+      >
         {this.renderNub()}
         {this.renderHeader()}
         {this.renderList()}

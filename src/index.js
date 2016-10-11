@@ -8,6 +8,7 @@ import configureStore from './store';
 import Header from './components/Header';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import WindowEvents from './components/WindowEvents';
 import DevTools from './components/DevTools';
 
 
@@ -21,6 +22,8 @@ render(
 
         <Match exactly pattern="/" component={Home} />
         <Miss component={Profile} />
+
+        <WindowEvents />
 
         <DevTools />
       </div>
