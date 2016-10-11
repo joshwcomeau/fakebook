@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-import { black } from '../../global-styles';
+import { navy } from '../../global-styles';
 
 export default StyleSheet.create({
   flyout: {
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     zIndex: -1,
     background: '#FFFFFF',
     boxShadow: '0px 1px 3px rgba(0,0,0,0.25)',
-    color: black
+    color: navy
   },
 
   nub: {

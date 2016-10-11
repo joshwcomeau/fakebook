@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 
 import { viewProfilePage } from '../../actions';
+import {
+  currentProfileWithExtrasSelector,
+} from '../../reducers/profiles.reducer';
+
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import ProfileHeader from '../ProfileHeader';
 import styles from './styles';
@@ -15,9 +19,25 @@ class Profile extends Component {
   }
 
   render() {
+    const { profile } = this.props;
+
+    console.log("PROFILE", profile)
+
+    if (typeof profile === 'undefined') {
+      // This means we're still loading our main profile info.
+      // Don't bother rendering anything (except maybe a spinner?)
+      return null;
+    }
+
+    if (profile === null) {
+      // If the profile is `null`, it means that it wasn't able to be found.
+      // TODO: Display a 404-type component.
+      return null;
+    }
+
     return (
       <MaxWidthWrapper mergeStyles={styles.profile}>
-        <ProfileHeader />
+        <ProfileHeader profile={this.props.profile}/>
       </MaxWidthWrapper>
     );
   }
@@ -31,4 +51,8 @@ Profile.defaultProps = {
 
 };
 
-export default connect(null, { viewProfilePage })(Profile);
+const mapStateToProps = state => ({
+  profile: currentProfileWithExtrasSelector(state),
+});
+
+export default connect(mapStateToProps, { viewProfilePage })(Profile);
