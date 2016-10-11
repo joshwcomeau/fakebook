@@ -60,8 +60,12 @@ class Flyout extends Component {
       case 'notifications':
         return (
           <FlyoutHeader
-            action={markAllNotificationsAsRead}
-            actionText="Mark All as Read"
+            actions={[
+              {
+                label: 'Mark All as Read',
+                callback: markAllNotificationsAsRead,
+              }
+            ]}
           >
             Notifications
           </FlyoutHeader>
@@ -70,8 +74,13 @@ class Flyout extends Component {
         // TODO: Fetch actual number of unread messages
         return (
           <FlyoutHeader
-            action={markAllMessagesAsRead}
-            actionText="Mark All as Read"
+            actions={[{
+              label: 'Mark All as Read',
+              callback: markAllMessagesAsRead,
+            }, {
+              label: 'New Message',
+              linkTo: '/messages/new',
+            }]}
           >
             Recent (12)
           </FlyoutHeader>

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'aphrodite';
 import {
-  offwhite,
   lightGrey,
+  mediumGrey,
   darkGrey,
   primaryColor,
 } from '../../global-styles';
@@ -13,12 +13,12 @@ export default StyleSheet.create({
     padding: '5px 8px',
     borderBottom: `1px solid ${lightGrey}`,
     fontSize: '12px',
+    lineHeight: '20px',
   },
 
   heading: {
     fontWeight: 'bold',
     color: darkGrey,
-    lineHeight: '20px',
   },
 
   action: {
@@ -26,10 +26,26 @@ export default StyleSheet.create({
     background: 'transparent',
     outline: 'none',
     color: primaryColor,
+    padding: 0,
     cursor: 'pointer',
+    textDecoration: 'none',
 
     ':hover': {
       textDecoration: 'underline',
+    },
+  },
+
+  actionContainer: {
+    display: 'inline-block',
+
+    ':after': {
+      color: mediumGrey,
+      padding: '0 4px',
+      content: '"·"',
+    },
+
+    ':last-child:after': {
+      content: 'none',
     },
   },
 });

@@ -5,19 +5,19 @@ import {
 } from '../../global-styles.js';
 
 
-const headerHeightPx = '43px';
+const headerHeight = '43px';
 
 export default StyleSheet.create({
   headerContainer: {
     position: 'relative',
-    height: headerHeightPx,
+    height: headerHeight,
     minWidth: '100%',
   },
   header: {
     position: 'fixed',
     width: '100%',
     top: '0',
-    height: headerHeightPx,
+    height: headerHeight,
     backgroundColor: primaryColor,
     borderBottom: `1px solid ${darkerPrimaryColor}`,
     color: '#FFFFFF',
@@ -31,11 +31,12 @@ export default StyleSheet.create({
   },
   headerNavigation: {
     flex: '0 0 auto',
-    lineHeight: headerHeightPx,
+    height: headerHeight,
+    lineHeight: headerHeight,
   },
   headerNavigationChunk: {
     display: 'inline-block',
-    height: headerHeightPx,
+    height: headerHeight,
     padding: '0 9px',
   },
   logo: {

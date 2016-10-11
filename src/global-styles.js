@@ -7,6 +7,7 @@
 
 export const offwhite = '#e9ebee';
 export const lightGrey = '#dddfe2';
+export const mediumGrey = '#90949c';
 export const darkGrey = '#333333';
 export const black = '#1d2129';
 export const primaryColor = '#3b5998';

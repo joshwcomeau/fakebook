@@ -12,9 +12,12 @@ const SpriteIcon = ({ name, mergeStyles }) => (
 SpriteIcon.propTypes = {
   name: PropTypes.oneOf([
     'squareLogo',
-    'friends',
-    'messages',
-    'notifications',
+    'friendsLight',
+    'friendsDark',
+    'messagesLight',
+    'messagesDark',
+    'notificationsLight',
+    'notificationsDark',
   ]),
   mergeStyles: PropTypes.object,
 };
