@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-import { navy } from '../../global-styles';
+import { navy } from '../../style-variables';
 
 export default StyleSheet.create({
   profileHeader: {

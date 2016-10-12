@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-import { offwhite, primaryColor } from '../../global-styles';
+import { offwhite, primaryColor } from '../../style-variables';
 
 export default StyleSheet.create({
   button: {

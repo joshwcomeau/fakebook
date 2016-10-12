@@ -4,7 +4,7 @@ import {
   mediumGrey,
   darkGrey,
   primaryColor,
-} from '../../global-styles';
+} from '../../style-variables';
 
 export default StyleSheet.create({
   flyoutHeader: {

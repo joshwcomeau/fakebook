@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-import { lightGrey } from '../../global-styles';
+import { lightGrey } from '../../style-variables';
 
 export default StyleSheet.create({
   tabSelector: {

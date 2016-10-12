@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-import { alertColor } from '../../global-styles';
+import { alertColor } from '../../style-variables';
 
 export default StyleSheet.create({
   headerAction: {

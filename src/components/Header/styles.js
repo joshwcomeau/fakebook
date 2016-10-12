@@ -2,7 +2,7 @@ import { StyleSheet } from 'aphrodite';
 import {
   primaryColor,
   darkerPrimaryColor,
-} from '../../global-styles.js';
+} from '../../style-variables.js';
 
 
 const headerHeight = '43px';

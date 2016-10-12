@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite';
-import { maxWidthPx } from '../../global-styles.js';
+import { maxWidthPx } from '../../style-variables.js';
 
 
 export default StyleSheet.create({
