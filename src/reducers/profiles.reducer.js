@@ -5,6 +5,7 @@ import {
   FETCH_USER_FRIENDS_SUCCESS,
   FETCH_USER_PROFILE_SUCCESS,
 } from '../actions';
+import { pickValues } from '../utils/misc.utils';
 
 const initialState = {
   byId: {},
@@ -92,4 +93,14 @@ export const currentProfileWithExtrasSelector = createSelector(
     ...currentProfile,
     fullName,
   })
+);
+
+export const currentProfileFriendsSelector = createSelector(
+  currentProfileIdSelector,
+  byIdSelector,
+  (currentProfileId, byId) => {
+    const { friendIds } = byId[currentProfileId];
+
+    return pickValues(byId, friendIds);
+  }
 );

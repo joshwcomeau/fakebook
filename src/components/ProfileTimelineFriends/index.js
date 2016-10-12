@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 import sampleSize from 'lodash.samplesize';
 
+import {
+  currentProfileSelector,
+  currentProfileFriendsSelector,
+} from '../../reducers/profiles.reducer';
 import Card from '../Card';
 import CardHeader from '../CardHeader';
+import CardBody from '../CardBody';
+import Clearfix from '../Clearfix';
 import ProfileTimelineFriendSquare from '../ProfileTimelineFriendSquare';
 import styles from './styles';
 
@@ -17,28 +23,25 @@ const ProfileTimelineFriends = ({ friendProfiles, numOfFriends }) => {
         Friends
       </CardHeader>
 
-      {friendProfiles.map(profile => (
-        <ProfileTimelineFriendSquare
-          key={profile.id}
-          profile={profile}
-        />
-      ))}
+      <CardBody mergeStyles={styles.cardBodyForTable}>
+        <Clearfix>
+          {friendProfiles.map(profile => (
+            <ProfileTimelineFriendSquare
+              key={profile.id}
+              profile={profile}
+            />
+          ))}
+        </Clearfix>
+      </CardBody>
+      <div style={{ clear: 'both' }} />
     </Card>
   );
 };
 
-ProfileTimelineFriends.propTypes = {
-
-};
-
 const mapStateToProps = state => {
-  const friendProfileIds = sampleSize(Object.keys(state.profiles.byId), 9);
-
   return {
-    friendProfiles: friendProfileIds.map(profileId => (
-      state.profiles.byId[profileId]
-    )),
-    numOfFriends: 213,
+    friendProfiles: currentProfileFriendsSelector(state),
+    numOfFriends: currentProfileSelector(state).numOfFriends,
   }
 };
 

@@ -4,7 +4,7 @@ export default StyleSheet.create({
   cardHeader: {
     fontSize: '16px',
     lineHeight: '24px',
-    marginBottom: '12px',
+    padding: '12px',
   },
   icon: {
     float: 'left',

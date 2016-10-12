@@ -1,7 +1,11 @@
 import { StyleSheet } from 'aphrodite';
 
 export default StyleSheet.create({
-  cardBodyForTable: {
-    paddingLeft: '5px',
+  cardBody: {
+
+  },
+
+  withPadding: {
+    padding: '0 12px 12px 12px',
   },
 });

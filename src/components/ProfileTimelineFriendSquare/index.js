@@ -1,15 +1,24 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { css } from 'aphrodite';
 
 import styles from './styles';
 
 
 const ProfileTimelineFriendSquare = ({ profile }) => {
+  const { profilePhoto, firstName, lastName } = profile;
+
   return (
-    <div className={css(styles.profileTimelineFriendSquare)}>
-      Your Component Here :)
-    </div>
+    <Link
+      to={`/${profile.userName}`}
+      className={css(styles.profileTimelineFriendSquare)}
+      style={{ backgroundImage: `url(${profilePhoto})` }}
+    >
+      <div className={css(styles.friendName)}>
+        {firstName} {lastName}
+      </div>
+    </Link>
   );
 };
 

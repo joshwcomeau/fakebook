@@ -6,6 +6,7 @@ import { css } from 'aphrodite';
 import { currentProfileSelector } from '../../reducers/profiles.reducer';
 import Card from '../Card';
 import CardHeader from '../CardHeader';
+import CardBody from '../CardBody';
 import HorizontalRule from '../HorizontalRule';
 import ProfileTimelineIconList from '../ProfileTimelineIconList';
 import styles from './styles';
@@ -17,10 +18,11 @@ class ProfileTimelineIntro extends Component {
     return (
       <Card>
         <CardHeader icon="blueWorld">Intro</CardHeader>
-
-        <p className={css(styles.introParagraph)}>{profile.intro}</p>
-        <HorizontalRule />
-        <ProfileTimelineIconList />
+        <CardBody withPadding>
+          <p className={css(styles.introParagraph)}>{profile.intro}</p>
+          <HorizontalRule />
+          <ProfileTimelineIconList />
+        </CardBody>
       </Card>
     );
   }

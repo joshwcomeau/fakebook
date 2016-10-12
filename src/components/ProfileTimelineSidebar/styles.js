@@ -4,7 +4,4 @@ export default StyleSheet.create({
   profileTimelineSidebar: {
 
   },
-  introParagraph: {
-    textAlign: 'center',
-  },
 });
