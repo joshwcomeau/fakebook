@@ -19,6 +19,7 @@ SpriteIcon.propTypes = {
     'notificationsLight',
     'notificationsDark',
     'profileTabNub',
+    'blueWorld',
   ]),
   mergeStyles: PropTypes.object,
 };

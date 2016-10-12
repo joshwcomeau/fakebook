@@ -54,7 +54,7 @@ export default combineReducers({
 const byIdSelector = state => state.profiles.byId;
 const currentProfileIdSelector = state => state.profiles.currentProfileId;
 
-const currentProfileSelector = createSelector(
+export const currentProfileSelector = createSelector(
   byIdSelector,
   currentProfileIdSelector,
   (byId, currentProfileId) => {

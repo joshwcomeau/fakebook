@@ -5,20 +5,20 @@ import { css } from 'aphrodite';
 import styles from './styles';
 
 
-const ProfileAbout = () => {
+const Card = ({ children }) => {
   return (
-    <div className={css(styles.profileAbout)}>
-      About
+    <div className={css(styles.card)}>
+      { children }
     </div>
   );
 };
 
-ProfileAbout.propTypes = {
+Card.propTypes = {
+  children: PropTypes.node,
+};
+
+Card.defaultProps = {
 
 };
 
-ProfileAbout.defaultProps = {
-
-};
-
-export default ProfileAbout;
+export default Card;

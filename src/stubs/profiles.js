@@ -1,6 +1,7 @@
 import Faker from 'faker';
 import range from 'lodash.range';
 import padStart from 'lodash.padstart';
+import sampleSize from 'lodash.samplesize';
 
 const josh = {
   id: '0001',
@@ -8,13 +9,47 @@ const josh = {
   firstName: 'Joshua',
   lastName: 'Comeau',
   intro: "Creator of Fakebook, serial pseudoentrepreneur. Couldn't decide if this ought to be called 'Fakebook' or 'Fauxbook'.",
-  job: 'Unsplash',
-  school: 'Vanier College',
+  work: [
+    {
+      role: 'Software Engineer',
+      company: 'Unsplash',
+      isCurrent: true,
+    }, {
+      role: 'Software Engineer',
+      company: 'Breather',
+      isCurrent: false,
+    },
+  ],
+  education: [
+    {
+      school: 'Vanier College',
+      level: 'college',
+    }, {
+      school: 'M.I.N.D',
+      level: 'high',
+    },
+  ],
   currentCity: 'Montreal',
   homeCity: 'Montreal',
   profilePhoto: 'http://placekitten.com/168/168',
   coverPhoto: Faker.image.abstract(),
 };
+
+
+const createWorkHistory = (numOfJobs = Math.floor(Math.random() * 3)) => {
+  return range(numOfJobs).map(i => ({
+    role: Faker.name.jobType,
+    company: Faker.company.companyName,
+    isCurrent: i === 0,
+  }));
+}
+
+const createEducationHistory = (numOfSchools = Math.floor(Math.random() * 2)) => {
+  return range(numOfSchools).map(() => ({
+    school: Faker.company.companyName,
+    level: sampleSize(['elementary', 'high', 'college', 'university']),
+  }));
+}
 
 const randomlyGeneratedUsers = {};
 range(5).forEach(i => {
@@ -30,8 +65,8 @@ range(5).forEach(i => {
     firstName: Faker.name.firstName(),
     lastName: Faker.name.lastName(),
     intro: Faker.company.bs(),
-    job: Faker.company.companyName(),
-    school: Faker.company.companyName(),
+    work: createWorkHistory(),
+    education: createEducationHistory(),
     currentCity: Faker.address.city(),
     homeCity: Faker.address.city(),
     profilePhoto: Faker.image.avatar(),

@@ -1,6 +1,7 @@
 import { StyleSheet } from 'aphrodite';
 import iconSprite from '../../images/icon-sprite.png';
 import iconSpriteAlt from '../../images/icon-sprite-alt.png';
+import iconSpriteProfile from '../../images/icon-sprite-profile.png';
 
 export default StyleSheet.create({
   spriteIcon: {
@@ -40,5 +41,10 @@ export default StyleSheet.create({
     backgroundPosition: '-113px -220px',
     width: '17px',
     height: '9px',
+  },
+  blueWorld: {
+    backgroundImage: `url(${iconSpriteProfile})`,
+    backgroundSize: '27px 338px',
+    backgroundPosition: '0 -22px',
   },
 });

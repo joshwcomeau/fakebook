@@ -22,7 +22,9 @@ class Profile extends Component {
   }
 
   render() {
-    const { profile } = this.props;
+    const { profile, params, location } = this.props;
+
+    console.log("Rendering", profile)
 
     if (typeof profile === 'undefined') {
       // This means we're still loading our main profile info.
@@ -38,11 +40,11 @@ class Profile extends Component {
 
     return (
       <MaxWidthWrapper mergeStyles={styles.profile}>
-        <ProfileHeader profile={this.props.profile}/>
+        <ProfileHeader profile={profile}/>
         <ProfileTabSelector
-          userName={this.props.params.userName}
-          location={this.props.location}
-          numOfFriends={this.props.profile.friendIds.length}
+          userName={params.userName}
+          location={location}
+          numOfFriends={profile.friendIds.length}
         />
 
         <Match exactly pattern="/:userName/" component={ProfileTimeline} />
