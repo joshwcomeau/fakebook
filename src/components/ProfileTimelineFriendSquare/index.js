@@ -6,7 +6,6 @@ import styles from './styles';
 
 
 const ProfileTimelineFriendSquare = ({ profile }) => {
-  console.log("Rendering with", profile)
   return (
     <div className={css(styles.profileTimelineFriendSquare)}>
       Your Component Here :)

@@ -19,6 +19,7 @@
     "lodash.findkey": "^4.6.0",
     "lodash.padstart": "^4.6.1",
     "lodash.pick": "^4.4.0",
+    "lodash.pickby": "^4.6.0",
     "lodash.range": "^3.2.0",
     "lodash.samplesize": "^4.2.0",
     "react": "^15.3.2",

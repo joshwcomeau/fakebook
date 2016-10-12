@@ -42,7 +42,7 @@ class Profile extends Component {
         <ProfileTabSelector
           userName={params.userName}
           location={location}
-          numOfFriends={profile.friendIds.length}
+          numOfFriends={profile.numOfFriends}
         />
 
         <Match exactly pattern="/:userName/" component={ProfileTimeline} />

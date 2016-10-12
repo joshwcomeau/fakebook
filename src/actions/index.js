@@ -1,3 +1,6 @@
+export const FETCH_USER_FRIENDS_REQUEST = 'FETCH_USER_FRIENDS_REQUEST';
+export const FETCH_USER_FRIENDS_SUCCESS = 'FETCH_USER_FRIENDS_SUCCESS';
+export const FETCH_USER_FRIENDS_FAILURE = 'FETCH_USER_FRIENDS_FAILURE';
 export const FETCH_USER_POSTS_REQUEST = 'FETCH_USER_POSTS_REQUEST';
 export const FETCH_USER_POSTS_SUCCESS = 'FETCH_USER_POSTS_SUCCESS';
 export const FETCH_USER_POSTS_FAILURE = 'FETCH_USER_POSTS_FAILURE';
@@ -10,13 +13,29 @@ export const TOGGLE_FLYOUT = 'TOGGLE_FLYOUT';
 export const VIEW_PROFILE_PAGE = 'VIEW_PROFILE_PAGE';
 
 
+export const fetchUserFriendsRequest = () => ({
+  type: FETCH_USER_FRIENDS_REQUEST,
+});
+
+export const fetchUserFriendsSuccess = ({ userId, friendIds, friendProfiles }) => ({
+  type: FETCH_USER_FRIENDS_SUCCESS,
+  userId,
+  friendIds,
+  friendProfiles,
+});
+
+export const fetchUserFriendsFailure = error => ({
+  type: FETCH_USER_FRIENDS_FAILURE,
+  error,
+});
+
 export const fetchUserPostsRequest = () => ({
   type: FETCH_USER_POSTS_REQUEST,
 });
 
-export const fetchUserPostsSuccess = ({ payload }) => ({
+export const fetchUserPostsSuccess = ({ posts }) => ({
   type: FETCH_USER_POSTS_SUCCESS,
-  payload,
+  posts,
 });
 
 export const fetchUserPostsFailure = error => ({
@@ -28,9 +47,9 @@ export const fetchUserProfileRequest = () => ({
   type: FETCH_USER_PROFILE_REQUEST,
 });
 
-export const fetchUserProfileSuccess = ({ payload }) => ({
+export const fetchUserProfileSuccess = ({ profile }) => ({
   type: FETCH_USER_PROFILE_SUCCESS,
-  payload,
+  profile,
 });
 
 export const fetchUserProfileFailure = error => ({

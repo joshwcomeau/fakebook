@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 import { createSelector } from 'reselect';
 
 import {
+  FETCH_USER_FRIENDS_SUCCESS,
   FETCH_USER_PROFILE_SUCCESS,
-  PROFILE_NOT_FOUND,
 } from '../actions';
 
 const initialState = {
@@ -19,14 +19,21 @@ function byId(state = initialState.byId, action) {
     case FETCH_USER_PROFILE_SUCCESS:
       return {
         ...state,
-        [action.payload.profile.id]: action.payload.profile,
+        [action.profile.id]: action.profile,
       };
 
-    case PROFILE_NOT_FOUND:
+    case FETCH_USER_FRIENDS_SUCCESS:
       return {
         ...state,
-        [action.id]: null,
+        // Update our current profile with this new list of friends
+        [action.userId]: {
+          ...state[action.userId],
+          friendIds: action.friendIds,
+        },
+        // Add the profiles of all our friends (including their own friendIds)
+        ...action.friendProfiles,
       };
+
 
     default:
       return state;
@@ -36,7 +43,7 @@ function byId(state = initialState.byId, action) {
 function currentProfileId(state = initialState.currentProfileId, action) {
   switch (action.type) {
     case FETCH_USER_PROFILE_SUCCESS:
-      return action.payload.profile.id;
+      return action.profile.id;
 
     default:
       return state;
@@ -57,10 +64,7 @@ const currentProfileIdSelector = state => state.profiles.currentProfileId;
 export const currentProfileSelector = createSelector(
   byIdSelector,
   currentProfileIdSelector,
-  (byId, currentProfileId) => {
-    console.log("BY ID", byId)
-    return byId[currentProfileId];
-  }
+  (byId, currentProfileId) => byId[currentProfileId]
 );
 
 const firstNameSelector = createSelector(

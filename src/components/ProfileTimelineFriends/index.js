@@ -33,7 +33,6 @@ ProfileTimelineFriends.propTypes = {
 
 const mapStateToProps = state => {
   const friendProfileIds = sampleSize(Object.keys(state.profiles.byId), 9);
-  console.log(state.profiles.byId, friendProfileIds);
 
   return {
     friendProfiles: friendProfileIds.map(profileId => (
