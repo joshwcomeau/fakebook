@@ -32,8 +32,9 @@ import styles from './styles';
 class Flyout extends Component {
   renderNub() {
     let offset;
+    const { activeFlyout } = this.props;
 
-    switch (this.props.activeFlyout) {
+    switch (activeFlyout) {
       case 'notifications':
         offset = 14;
         break;
@@ -43,6 +44,7 @@ class Flyout extends Component {
       case 'friends':
         offset = 84;
         break;
+      default: throw new Error(`Unsupported activeFlyout of ${activeFlyout}`)
     }
 
     return (
@@ -57,7 +59,7 @@ class Flyout extends Component {
       activeFlyout,
     } = this.props;
 
-    switch (this.props.activeFlyout) {
+    switch (activeFlyout) {
       case 'notifications':
         return (
           <FlyoutHeader
@@ -92,6 +94,7 @@ class Flyout extends Component {
             Friend Requests
           </FlyoutHeader>
         );
+      default: throw new Error(`Unsupported activeFlyout of ${activeFlyout}`)
     }
   }
 

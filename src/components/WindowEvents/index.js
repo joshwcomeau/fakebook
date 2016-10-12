@@ -1,10 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { css } from 'aphrodite';
 
 import { toggleFlyout } from '../../actions';
-import styles from './styles';
 
 
 class WindowEvents extends Component {

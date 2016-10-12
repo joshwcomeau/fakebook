@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Match, Miss } from 'react-router';
+import { BrowserRouter as Router, Match } from 'react-router';
 
 import configureStore from './store';
 

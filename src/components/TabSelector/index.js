@@ -7,15 +7,22 @@ import styles from './styles';
 
 
 const TabSelector = ({ tabs, selectedTab, mergeStyles }) => {
+  const tabElements = tabs.map(tab => {
+    const isExplicitlySelected = tab.id === selectedTab;
+    const isSelectedByDefault = !selectedTab && tab.isDefault;
+
+    return (
+      <Tab
+        {...tab}
+        key={tab.id}
+        isSelected={isExplicitlySelected || isSelectedByDefault}
+      />
+    );
+  });
+
   return (
     <ul className={css(styles.tabSelector, mergeStyles)}>
-      {tabs.map(tab => (
-        <Tab
-          {...tab}
-          key={tab.id}
-          isSelected={tab.id === selectedTab || !selectedTab && tab.isDefault}
-        />
-      ))}
+      {tabElements}
     </ul>
   );
 };
