@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import { css } from 'aphrodite';
 
 import defaultAvatar from '../../images/default-avatar.png';
+import Button from '../Button';
+import CoverPhoto from '../CoverPhoto';
 import styles from './styles';
 
 
@@ -12,7 +14,14 @@ const ProfileHeader = ({ profile }) => {
   const { fullName, userName, profilePhoto, coverPhoto } = profile;
 
   return (
-    <div className={css(styles.profileHeader)}>
+    <div
+      className={css(
+        styles.profileHeader,
+        coverPhoto && styles.tallProfileHeader
+      )}
+    >
+      {!!coverPhoto && <CoverPhoto photo={coverPhoto} />}
+
       <div className={css(styles.profilePhotoContainer)}>
         <img src={profilePhoto} className={css(styles.profilePhoto)} />
       </div>
@@ -20,6 +29,12 @@ const ProfileHeader = ({ profile }) => {
       <Link to={`/${userName}`} className={css(styles.fullName)}>
         {fullName}
       </Link>
+
+      <div className={css(styles.actions)}>
+        <Button theme="light" onClick={function() {}}>
+          Update Info
+        </Button>
+      </div>
     </div>
   );
 };

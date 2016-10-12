@@ -18,6 +18,7 @@ SpriteIcon.propTypes = {
     'messagesDark',
     'notificationsLight',
     'notificationsDark',
+    'profileTabNub',
   ]),
   mergeStyles: PropTypes.object,
 };

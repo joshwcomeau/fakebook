@@ -13,7 +13,7 @@ const josh = {
   currentCity: 'Montreal',
   homeCity: 'Montreal',
   profilePhoto: 'http://placekitten.com/168/168',
-  coverPhoto: 'http://placekitten.com/900/205',
+  coverPhoto: Faker.image.abstract(),
 };
 
 const randomlyGeneratedUsers = {};

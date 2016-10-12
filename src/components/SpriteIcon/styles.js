@@ -1,5 +1,6 @@
 import { StyleSheet } from 'aphrodite';
 import iconSprite from '../../images/icon-sprite.png';
+import iconSpriteAlt from '../../images/icon-sprite-alt.png';
 
 export default StyleSheet.create({
   spriteIcon: {
@@ -32,5 +33,12 @@ export default StyleSheet.create({
   },
   notificationsDark: {
     backgroundPosition: '0 -238px',
+  },
+  profileTabNub: {
+    backgroundImage: `url(${iconSpriteAlt})`,
+    backgroundSize: '500px 284px',
+    backgroundPosition: '-113px -220px',
+    width: '17px',
+    height: '9px',
   },
 });

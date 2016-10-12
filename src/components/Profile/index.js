@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Match, Miss } from 'react-router';
 import { css } from 'aphrodite';
 
 import { viewProfilePage } from '../../actions';
@@ -10,6 +11,7 @@ import {
 
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import ProfileHeader from '../ProfileHeader';
+import ProfileTabSelector from '../ProfileTabSelector';
 import styles from './styles';
 
 
@@ -21,7 +23,7 @@ class Profile extends Component {
   render() {
     const { profile } = this.props;
 
-    console.log("PROFILE", profile)
+    console.log(this.props);
 
     if (typeof profile === 'undefined') {
       // This means we're still loading our main profile info.
@@ -38,6 +40,11 @@ class Profile extends Component {
     return (
       <MaxWidthWrapper mergeStyles={styles.profile}>
         <ProfileHeader profile={this.props.profile}/>
+        <ProfileTabSelector
+          userName={this.props.params.userName}
+          location={this.props.location}
+          numOfFriends={this.props.profile.friendIds.length}
+        />
       </MaxWidthWrapper>
     );
   }

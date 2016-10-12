@@ -4,8 +4,13 @@ import { navy } from '../../global-styles';
 export default StyleSheet.create({
   profileHeader: {
     position: 'relative',
+    zIndex: 2,
     height: '205px',
     backgroundColor: navy,
+  },
+
+  tallProfileHeader: {
+    height: '315px',
   },
 
   profilePhotoContainer: {
@@ -37,6 +42,12 @@ export default StyleSheet.create({
     color: '#FFFFFF',
     textRendering: 'optimizeLegibility',
     textDecoration: 'none',
-  }
+  },
+
+  actions: {
+    position: 'absolute',
+    right: '15px',
+    bottom: '15px',
+  },
 
 });
