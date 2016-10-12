@@ -8,5 +8,6 @@ export default StyleSheet.create({
     borderColor: '#e5e6e9 #dfe0e4 #d0d1d5',
     borderRadius: '3px',
     padding: '12px',
+    marginBottom: '15px',
   },
 });

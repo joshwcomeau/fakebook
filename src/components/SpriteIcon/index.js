@@ -20,6 +20,7 @@ SpriteIcon.propTypes = {
     'notificationsDark',
     'profileTabNub',
     'blueWorld',
+    'pinkFriends',
     'workProfile',
     'schoolProfile',
     'homeProfile',

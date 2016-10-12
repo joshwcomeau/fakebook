@@ -24,8 +24,6 @@ class Profile extends Component {
   render() {
     const { profile, params, location } = this.props;
 
-    console.log("Rendering", profile)
-
     if (typeof profile === 'undefined') {
       // This means we're still loading our main profile info.
       // Don't bother rendering anything (except maybe a spinner?)

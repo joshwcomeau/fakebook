@@ -2,6 +2,7 @@ import { StyleSheet } from 'aphrodite';
 import iconSprite from '../../images/icon-sprite.png';
 import iconSpriteAlt from '../../images/icon-sprite-alt.png';
 import iconSpriteProfile from '../../images/icon-sprite-profile.png';
+import iconSpriteMedia from '../../images/icon-sprite-media.png';
 
 const iconSpriteStyles = {
   backgroundImage: `url(${iconSprite})`,
@@ -17,6 +18,11 @@ const iconSpriteAltStyles = {
 const iconSpriteProfileStyles = {
   backgroundImage: `url(${iconSpriteProfile})`,
   backgroundSize: '27px 338px',
+}
+
+const iconSpriteMediaStyles = {
+  backgroundImage: `url(${iconSpriteMedia})`,
+  backgroundSize: '53px 222px',
 }
 
 export default StyleSheet.create({
@@ -58,6 +64,10 @@ export default StyleSheet.create({
   blueWorld: {
     backgroundPosition: '0 -22px',
     ...iconSpriteProfileStyles,
+  },
+  pinkFriends: {
+    backgroundPosition: '0 -180px',
+    ...iconSpriteMediaStyles,
   },
   workProfile: {
     backgroundPosition: '-13px -312px',
