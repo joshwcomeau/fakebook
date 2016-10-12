@@ -20,6 +20,10 @@ SpriteIcon.propTypes = {
     'notificationsDark',
     'profileTabNub',
     'blueWorld',
+    'workProfile',
+    'schoolProfile',
+    'homeProfile',
+    'mapPinProfile',
   ]),
   mergeStyles: PropTypes.object,
 };

@@ -3,6 +3,22 @@ import iconSprite from '../../images/icon-sprite.png';
 import iconSpriteAlt from '../../images/icon-sprite-alt.png';
 import iconSpriteProfile from '../../images/icon-sprite-profile.png';
 
+const iconSpriteStyles = {
+  backgroundImage: `url(${iconSprite})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'auto',
+}
+
+const iconSpriteAltStyles = {
+  backgroundImage: `url(${iconSpriteAlt})`,
+  backgroundSize: '500px 284px',
+}
+
+const iconSpriteProfileStyles = {
+  backgroundImage: `url(${iconSpriteProfile})`,
+  backgroundSize: '27px 338px',
+}
+
 export default StyleSheet.create({
   spriteIcon: {
     display: 'block',
@@ -10,9 +26,7 @@ export default StyleSheet.create({
     // These values may be overwritten by other styles.
     width: '24px',
     height: '24px',
-    backgroundImage: `url(${iconSprite})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'auto',
+    ...iconSpriteStyles,
   },
   squareLogo: {
     backgroundPosition: '0 -163px',
@@ -36,15 +50,37 @@ export default StyleSheet.create({
     backgroundPosition: '0 -238px',
   },
   profileTabNub: {
-    backgroundImage: `url(${iconSpriteAlt})`,
-    backgroundSize: '500px 284px',
-    backgroundPosition: '-113px -220px',
     width: '17px',
     height: '9px',
+    backgroundPosition: '-113px -220px',
+    ...iconSpriteAltStyles,
   },
   blueWorld: {
-    backgroundImage: `url(${iconSpriteProfile})`,
-    backgroundSize: '27px 338px',
     backgroundPosition: '0 -22px',
+    ...iconSpriteProfileStyles,
+  },
+  workProfile: {
+    backgroundPosition: '-13px -312px',
+    width: '12px',
+    height: '12px',
+    ...iconSpriteProfileStyles,
+  },
+  schoolProfile: {
+    backgroundPosition: '0 -312px',
+    width: '12px',
+    height: '12px',
+    ...iconSpriteProfileStyles,
+  },
+  homeProfile: {
+    backgroundPosition: '-13px -273px',
+    width: '12px',
+    height: '12px',
+    ...iconSpriteProfileStyles,
+  },
+  mapPinProfile: {
+    backgroundPosition: '0 -299px',
+    width: '12px',
+    height: '12px',
+    ...iconSpriteProfileStyles,
   },
 });

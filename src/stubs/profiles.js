@@ -11,7 +11,7 @@ const josh = {
   intro: "Creator of Fakebook, serial pseudoentrepreneur. Couldn't decide if this ought to be called 'Fakebook' or 'Fauxbook'.",
   work: [
     {
-      role: 'Software Engineer',
+      role: 'Full-Stack Developer',
       company: 'Unsplash',
       isCurrent: true,
     }, {
@@ -29,8 +29,14 @@ const josh = {
       level: 'high',
     },
   ],
-  currentCity: 'Montreal',
-  homeCity: 'Montreal',
+  currentLocation: {
+    city: 'Montreal',
+    state: 'Quebec',
+  },
+  birthLocation: {
+    city: 'Montreal',
+    state: 'Quebec',
+  },
   profilePhoto: 'http://placekitten.com/168/168',
   coverPhoto: Faker.image.abstract(),
 };
@@ -67,8 +73,14 @@ range(5).forEach(i => {
     intro: Faker.company.bs(),
     work: createWorkHistory(),
     education: createEducationHistory(),
-    currentCity: Faker.address.city(),
-    homeCity: Faker.address.city(),
+    currentLocation: {
+      city: Faker.address.city(),
+      state: Faker.address.state(),
+    },
+    birthLocation: {
+      city: Faker.address.city(),
+      state: Faker.address.state(),
+    },
     profilePhoto: Faker.image.avatar(),
     coverPhoto: Math.random() > 0.5 ? Faker.image.abstract() : null,
   };

@@ -1,10 +1,7 @@
 import { StyleSheet } from 'aphrodite';
 
 export default StyleSheet.create({
-  profileTimelineSidebar: {
+  iconList: {
 
-  },
-  introParagraph: {
-    textAlign: 'center',
   },
 });
