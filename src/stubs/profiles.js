@@ -1,7 +1,7 @@
 import Faker from 'faker';
 import range from 'lodash.range';
 import padStart from 'lodash.padstart';
-import sampleSize from 'lodash.samplesize';
+import sample from 'lodash.sample';
 
 const josh = {
   id: '0001',
@@ -38,24 +38,24 @@ const josh = {
     state: 'Quebec',
   },
   profilePhoto: 'http://placekitten.com/168/168',
-  coverPhoto: Faker.image.abstract(),
+  coverPhoto: 'http://placekitten.com/860/350',
 };
 
 
 const createWorkHistory = (numOfJobs = Math.floor(Math.random() * 3)) => {
   return range(numOfJobs).map(i => ({
-    role: Faker.name.jobType,
-    company: Faker.company.companyName,
+    role: Faker.name.jobType(),
+    company: Faker.company.companyName(),
     isCurrent: i === 0,
   }));
-}
+};
 
 const createEducationHistory = (numOfSchools = Math.floor(Math.random() * 2)) => {
   return range(numOfSchools).map(() => ({
-    school: Faker.company.companyName,
-    level: sampleSize(['elementary', 'high', 'college', 'university']),
+    school: Faker.company.companyName(),
+    level: sample(['elementary', 'high', 'college', 'university']),
   }));
-}
+};
 
 const randomlyGeneratedUsers = {};
 range(5).forEach(i => {

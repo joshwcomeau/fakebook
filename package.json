@@ -22,6 +22,7 @@
     "lodash.pick": "^4.4.0",
     "lodash.pickby": "^4.6.0",
     "lodash.range": "^3.2.0",
+    "lodash.sample": "^4.2.1",
     "lodash.samplesize": "^4.2.0",
     "lodash.values": "^4.3.0",
     "react": "^15.3.2",

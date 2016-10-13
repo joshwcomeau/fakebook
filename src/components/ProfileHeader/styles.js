@@ -17,7 +17,7 @@ export default StyleSheet.create({
     position: 'absolute',
     display: 'block',
     left: '15px',
-    bottom: '-30px',
+    bottom: '-28px',
     background: 'rgba(0,0,0,0.3)',
     padding: '1px',
     borderRadius: '3px',
