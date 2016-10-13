@@ -8,11 +8,13 @@ import styles from './styles';
 const ProfileTabSelector = ({ userName, location, numOfFriends }) => {
   const { pathname } = location;
 
-  const urlPrefix = `/${userName}/`;
+  const urlPrefix = `/${userName}`;
 
   // The selected tab is just the final part of the pathname.
   // eg. fakebook.com/josh/friends -> `friends`
-  const selectedTab = pathname.split('/').reverse()[0];
+  const selectedTab = pathname.split(userName)
+    .reverse()[0]
+    .replace('/', '');
 
   const tabs = [
     {
@@ -23,16 +25,16 @@ const ProfileTabSelector = ({ userName, location, numOfFriends }) => {
     }, {
       label: 'About',
       id: 'about',
-      to: urlPrefix + 'about',
+      to: urlPrefix + '/about',
     }, {
       label: 'Friends',
       id: 'friends',
       subLabel: numOfFriends.toString(),
-      to: urlPrefix + 'friends',
+      to: urlPrefix + '/friends',
     }, {
       label: 'Photos',
       id: 'photos',
-      to: urlPrefix + 'photos',
+      to: urlPrefix + '/photos',
     },
   ];
 
