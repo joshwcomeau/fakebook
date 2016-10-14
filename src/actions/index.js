@@ -7,6 +7,10 @@ export const FETCH_USER_POSTS_FAILURE = 'FETCH_USER_POSTS_FAILURE';
 export const FETCH_USER_PROFILE_REQUEST = 'FETCH_USER_PROFILE_REQUEST';
 export const FETCH_USER_PROFILE_SUCCESS = 'FETCH_USER_PROFILE_SUCCESS';
 export const FETCH_USER_PROFILE_FAILURE = 'FETCH_USER_PROFILE_FAILURE';
+export const LOG_IN_REQUEST = 'LOG_IN_REQUEST';
+export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
+export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
+export const LOG_OUT = 'LOG_OUT';
 export const MARK_ALL_MESSAGES_AS_READ = 'MARK_ALL_MESSAGES_AS_READ';
 export const MARK_ALL_NOTIFICATIONS_AS_READ = 'MARK_ALL_NOTIFICATIONS_AS_READ';
 export const TOGGLE_FLYOUT = 'TOGGLE_FLYOUT';
@@ -55,6 +59,25 @@ export const fetchUserProfileSuccess = ({ profile }) => ({
 export const fetchUserProfileFailure = error => ({
   type: FETCH_USER_PROFILE_FAILURE,
   error,
+});
+
+export const logInRequest = ({ authToken }) => ({
+  type: LOG_IN_REQUEST,
+  authToken,
+});
+
+export const logInSuccess = ({ user }) => ({
+  type: LOG_IN_SUCCESS,
+  user,
+});
+
+export const logInFailure = ({ error }) => ({
+  type: LOG_IN_FAILURE,
+  error,
+});
+
+export const logOut = () => ({
+  type: LOG_OUT,
 });
 
 export const markAllMessagesAsRead = () => ({

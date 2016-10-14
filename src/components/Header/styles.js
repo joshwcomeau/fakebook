@@ -10,6 +10,7 @@ const headerHeight = '43px';
 export default StyleSheet.create({
   headerContainer: {
     position: 'relative',
+    zIndex: 10,
     height: headerHeight,
     minWidth: '100%',
   },

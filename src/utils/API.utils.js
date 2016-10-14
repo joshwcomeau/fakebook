@@ -14,6 +14,22 @@ import pickBy from 'lodash.pickby';
 import profiles from '../stubs/profiles';
 import friends from '../stubs/friends';
 
+export const authenticateUser = ({ authToken }) => {
+  // For now, we're hardcore faking this.
+  // No matter which auth token they provide, they're going to be
+  // authenticated as our main user.
+  //
+  // TODO: A more sophisticated system, where you can supply different
+  // values to select different users (or to represent a failed attempt).
+  //
+  // TODO: Authenticate with email/pass as well as via remembered token.
+
+  const userId = Object.keys(profiles)[1];
+  const user = profiles[userId];
+
+  return user;
+}
+
 export const fetchUserProfileData = ({ userName }) => {
   const profile = find(profiles, profile => profile.userName === userName);
 

@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 
+import { currentUserSelector } from '../../reducers/auth.reducer';
+
 import HeaderAction from '../HeaderAction';
 import Flyout from '../Flyout';
 import HeaderDivider from '../HeaderDivider';
@@ -15,8 +17,32 @@ import styles from './styles';
 
 const Header = ({
   activeFlyout,
+  currentUser,
   toggleFlyout,
 }) => {
+  let headerNavigation;
+  if (currentUser) {
+    headerNavigation = (
+      <div className={css(styles.headerNavigation)}>
+        <div className={css(styles.headerNavigationChunk)}>
+          <HeaderLink
+            to={`/${currentUser.userName}`}
+            label={currentUser.firstName}
+            imageSrc={currentUser.profilePhoto}
+          />
+          <HeaderDivider />
+          <HeaderLink to="/" label="Home" />
+        </div>
+
+        <div className={css(styles.headerNavigationChunk)}>
+          <HeaderAction actionName="friends" />
+          <HeaderAction actionName="messages" />
+          <HeaderAction actionName="notifications" />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={css(styles.headerContainer)}>
       <div className={css(styles.header)}>
@@ -26,23 +52,7 @@ const Header = ({
             <input className={css(styles.searchInput)} />
           </div>
 
-          <div className={css(styles.headerNavigation)}>
-            <div className={css(styles.headerNavigationChunk)}>
-              <HeaderLink
-                to="/josh"
-                label="Joshua"
-                imageSrc="https://placekitten.com/48/48"
-              />
-              <HeaderDivider />
-              <HeaderLink to="/" label="Home" />
-            </div>
-
-            <div className={css(styles.headerNavigationChunk)}>
-              <HeaderAction actionName="friends" />
-              <HeaderAction actionName="messages" />
-              <HeaderAction actionName="notifications" />
-            </div>
-          </div>
+          {headerNavigation}
 
           {activeFlyout && <Flyout />}
         </MaxWidthWrapper>
@@ -52,11 +62,18 @@ const Header = ({
 };
 
 Header.propTypes = {
-
+  activeFlyout: PropTypes.string,
+  currentUser: PropTypes.shape({
+    userName: PropTypes.string,
+    firstName: PropTypes.string,
+    profilePhoto: PropTypes.string,
+  }),
 };
+
 
 const mapStateToProps = state => ({
   activeFlyout: state.ui.headerActions.activeFlyout,
-})
+  currentUser: currentUserSelector(state),
+});
 
 export default connect(mapStateToProps)(Header);

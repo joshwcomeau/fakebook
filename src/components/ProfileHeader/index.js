@@ -12,8 +12,6 @@ import styles from './styles';
 const ProfileHeader = ({ profile }) => {
   const { fullName, userName, profilePhoto, coverPhoto } = profile;
 
-  console.log("Cover photo", coverPhoto)
-
   return (
     <div
       className={css(

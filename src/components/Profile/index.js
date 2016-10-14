@@ -18,7 +18,6 @@ import styles from './styles';
 
 class Profile extends Component {
   componentDidMount() {
-    console.log("Mounting with params", this.props.params);
     this.props.viewProfilePage({ userName: this.props.params.userName });
   }
 
@@ -31,7 +30,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log("Rendering with params", this.props.params);
     const { profile, params, location } = this.props;
 
     if (typeof profile === 'undefined') {

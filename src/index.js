@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Match } from 'react-router';
 
 import configureStore from './store';
 
+import App from './components/App';
 import Header from './components/Header';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -17,7 +18,7 @@ const store = configureStore();
 render(
   <Provider store={store}>
     <Router>
-      <div>
+      <App>
         <Header />
 
         <Match exactly pattern="/" component={Home} />
@@ -26,7 +27,7 @@ render(
         <WindowEvents />
 
         <DevTools />
-      </div>
+      </App>
     </Router>
   </Provider>,
   document.getElementById('root')
