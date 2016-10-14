@@ -24,6 +24,7 @@
     "lodash.range": "^3.2.0",
     "lodash.sample": "^4.2.1",
     "lodash.samplesize": "^4.2.0",
+    "lodash.sortby": "^4.7.0",
     "lodash.values": "^4.3.0",
     "react": "^15.3.2",
     "react-addons-perf": "^15.3.2",

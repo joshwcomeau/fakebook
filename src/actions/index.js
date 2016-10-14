@@ -28,7 +28,7 @@ export const fetchUserFriendsSuccess = ({ userId, friendIds, friendProfiles }) =
   friendProfiles,
 });
 
-export const fetchUserFriendsFailure = error => ({
+export const fetchUserFriendsFailure = ({ error }) => ({
   type: FETCH_USER_FRIENDS_FAILURE,
   error,
 });
@@ -42,7 +42,7 @@ export const fetchUserPostsSuccess = ({ posts }) => ({
   posts,
 });
 
-export const fetchUserPostsFailure = error => ({
+export const fetchUserPostsFailure = ({ error }) => ({
   type: FETCH_USER_POSTS_FAILURE,
   error,
 });
@@ -56,7 +56,7 @@ export const fetchUserProfileSuccess = ({ profile }) => ({
   profile,
 });
 
-export const fetchUserProfileFailure = error => ({
+export const fetchUserProfileFailure = ({ error }) => ({
   type: FETCH_USER_PROFILE_FAILURE,
   error,
 });

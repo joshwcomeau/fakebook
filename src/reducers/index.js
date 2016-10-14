@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
 
-import profiles from './profiles.reducer';
 import auth from './auth.reducer';
+import posts from './posts.reducer';
+import profiles from './profiles.reducer';
+
 import ui from './ui';
 
 
 export default combineReducers({
-  profiles,
   auth,
+  posts,
+  profiles,
   ui,
 });

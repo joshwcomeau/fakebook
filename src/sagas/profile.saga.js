@@ -31,6 +31,7 @@ function fetchUserData({ fetchMethod, onSuccess, onFailure }) {
       yield put(onSuccess(payload));
       return payload;
     } catch (error) {
+      console.log("Caught error", error, fetchMethod)
       yield put(onFailure({ error }));
     }
   }

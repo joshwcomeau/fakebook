@@ -13,6 +13,7 @@ import find from 'lodash.find';
 import pickBy from 'lodash.pickby';
 import profiles from '../stubs/profiles';
 import friends from '../stubs/friends';
+import posts from '../stubs/posts';
 
 export const authenticateUser = ({ authToken }) => {
   // For now, we're hardcore faking this.
@@ -45,8 +46,12 @@ export const fetchUserProfileData = ({ userName }) => {
   };
 }
 
-export const fetchUserPostsData = ({ userName }) => {
-  return [];
+export const fetchUserPostsData = ({ userId, pageNum, pageSize }) => {
+  const userPosts = pickBy(posts, post => post.authorId === userId);
+
+  return {
+    posts: userPosts,
+  };
 }
 
 export const fetchUserFriendsData = ({
