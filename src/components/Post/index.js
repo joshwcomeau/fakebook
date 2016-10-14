@@ -16,7 +16,8 @@ const Post = ({ post, author }) => {
         timestamp={post.timestamp}
         isShared={!!post.originalPostId}
       />
-    {post.text}
+      <p className={css(styles.postText)}>{post.text}</p>
+      { post.src && <img src={post.src} className={css(styles.img)} />}
     </Card>
   );
 };

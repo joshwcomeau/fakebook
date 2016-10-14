@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { css } from 'aphrodite';
 
+import { formatPostTimestamp } from '../../utils/time.utils';
 import styles from './styles';
 
 
@@ -24,13 +25,15 @@ class PostHeader extends Component {
     return (
       <div className={css(styles.postHeader)}>
         <img src={profilePhoto} className={css(styles.profilePhoto)} />
-        <span className={css(styles.title)}>
-          <Link to={`/${userName}`}>{firstName} {lastName}</Link>
+        <div className={css(styles.title)}>
+          <Link to={`/${userName}`} className={css(styles.authorName)}>
+            {firstName} {lastName}
+          </Link>
           {isShared && this.renderAttribution()}
-        </span>
-        <span className={css(styles.date)}>
-          {new Date(timestamp).toString()}
-        </span>
+        </div>
+        <div className={css(styles.date)}>
+          {formatPostTimestamp(new Date(timestamp))}
+        </div>
       </div>
     );
   }
