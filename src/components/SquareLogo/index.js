@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { css } from 'aphrodite';
 
 import SpriteIcon from '../SpriteIcon';

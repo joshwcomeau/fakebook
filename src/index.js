@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Match } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import configureStore from './store';
 
@@ -21,8 +21,8 @@ render(
       <App>
         <Header />
 
-        <Match exactly pattern="/" component={Home} />
-        <Match pattern="/:userName" component={Profile} />
+        <Route exact path="/" component={Home} />
+        <Route path="/:userName" component={Profile} />
 
         <WindowEvents />
 

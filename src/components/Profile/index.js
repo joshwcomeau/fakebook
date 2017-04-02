@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Match } from 'react-router';
+import { Route } from 'react-router-dom';
 
 import { viewProfilePage } from '../../actions';
 import {
@@ -18,19 +18,23 @@ import styles from './styles';
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.viewProfilePage({ userName: this.props.params.userName });
+    this.props.viewProfilePage({ userName: this.props.match.params.userName });
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.params.userName !== this.props.params.userName) {
+    if (prevProps.params.userName !== this.props.match.params.userName) {
       this.props.viewProfilePage({
-        userName: this.props.params.userName,
+        userName: this.props.match.params.userName,
       });
     }
   }
 
   render() {
-    const { profile, params, location } = this.props;
+    const {
+      profile,
+      location,
+      match: { params },
+    } = this.props;
 
     if (typeof profile === 'undefined') {
       // This means we're still loading our main profile info.
@@ -53,8 +57,8 @@ class Profile extends Component {
           numOfFriends={profile.numOfFriends}
         />
 
-        <Match exactly pattern="/:userName/" component={ProfileTimeline} />
-        <Match exactly pattern="/:userName/about" component={ProfileAbout} />
+        <Route exact path="/:userName/" component={ProfileTimeline} />
+        <Route exact path="/:userName/about" component={ProfileAbout} />
       </MaxWidthWrapper>
     );
   }

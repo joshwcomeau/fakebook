@@ -11,14 +11,14 @@ const josh = {
   intro: "Creator of Fakebook, serial pseudoentrepreneur. Couldn't decide if this ought to be called 'Fakebook' or 'Fauxbook'.",
   work: [
     {
+      role: 'Software Engineer',
+      company: 'Khan Academy',
+      isCurrent: true,
+    },{
       role: 'Full-Stack Developer',
       company: 'Unsplash',
-      isCurrent: true,
-    }, {
-      role: 'Software Engineer',
-      company: 'Breather',
       isCurrent: false,
-    },
+    }
   ],
   education: [
     {
